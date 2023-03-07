@@ -1,0 +1,31 @@
+<div class="container">
+   <mat-toolbar class="header" color="primary">
+      <mat-toolbar-row>
+         <button *ngIf="!flag" (click)="sortUsers()" class="btn" mat-fab color="primary">
+            <mat-icon >sort</mat-icon>
+         </button>
+         <button *ngIf="flag" (click)="sortUsersLess()" class="btn" mat-fab color="primary">
+            <mat-icon >sort</mat-icon>
+         </button>
+         Sort Date
+      </mat-toolbar-row>
+    </mat-toolbar>
+   <div *ngFor="let users of usersData" class="wrapper">
+      <div class="about-user">
+         <p class="email">User: {{users.email}}</p>
+         <p class="date">Date of add: {{users.date}}</p>
+         <button (click)="deleteCinema(users)" mat-raised-button color="warn">Delete</button>
+
+      </div>
+      <div *ngFor="let basket of users.basket; let i = index" class="favorites">
+         <div class="favorites___container-cinema">
+            <div class="cinema__id">{{i + 1}}.</div>
+            <div class="cinema__title">{{basket.title}}</div>
+            <div class="cinema__img"><img src="{{'https://image.tmdb.org/t/p/w500/' + basket.poster_path}}" alt=""></div>
+            <div class="cinema__release">Release date: {{basket.release_date}}</div>
+            <div class="cinema__release">isDone: {{basket.isDone}}</div>
+            <div class="cinema__quality">Quality: {{basket.quality}}</div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="wrapper">
+   <mat-toolbar class="header" color="primary">
+      <mat-toolbar-row>
+         <span *ngIf="formGr && userServ.isAuth">Welcom : {{formGr.value.email}}
+            <button (click)="logOut()" mat-raised-button color="primary">Log Out</button> </span>
+         <mat-icon style="cursor: pointer;" class="example-icon">search</mat-icon>
+         <form class="example-form">
+            <input (input)="searchItems(searchValue)" [ngModelOptions]="{ standalone: true }" [(ngModel)]="searchValue"
+               placeholder="Search">
+         </form>
+         <button *ngIf="!flag" (click)="sortDate()" class="btn" mat-fab color="primary">
+            <mat-icon>sort</mat-icon>
+         </button>
+         <button *ngIf="flag" (click)="sortDateLess()" class="btn" mat-fab color="primary">
+            <mat-icon>sort</mat-icon>
+         </button>
+         Sort Date
+         <button *ngIf="flagR" (click)="sortRating()" class="btn" mat-fab color="primary">
+            <mat-icon>stars</mat-icon>
+         </button>
+         <button *ngIf="!flagR" (click)="sortRatingLess()" class="btn" mat-fab color="primary">
+            <mat-icon>stars</mat-icon>
+         </button>
+         Sort Rating
+      </mat-toolbar-row>
+   </mat-toolbar>
+
+   <div class="container" *ngIf="cinemaData && cinemaData.results">
+
+      <div class="box" *ngFor="let cinema of cinemaData.results">
+         <mat-icon (click)="addToBasket(cinema, $event)" style="cursor: pointer;" class="example-icon">bookmark_add</mat-icon>
+         <div class="title">
+            {{cinema.title}}
+         </div>
+         <div class="flex">
+            <div class="relise">
+               {{cinema.release_date}}
+            </div>
+            <div class="vote-average">
+               <mat-icon style="cursor: pointer;">star</mat-icon>
+               {{cinema.vote_average}}
+            </div>
+         </div>
+         <div class="img">
+            <img [routerLink]="['/cinema', cinema.id]" src="{{'https://image.tmdb.org/t/p/w500/' + cinema.poster_path}}"
+               alt="">
+         </div>
+         <div class="btn-info">
+            <mat-icon style="cursor: pointer;" [routerLink]="['/cinema', cinema.id]">info</mat-icon>
+         </div>
+      </div>
+   </div>
+   <div class="message-error">{{messageError}}</div>
+   <div *ngIf="!cinemaData"> Loading... </div>
+</div>

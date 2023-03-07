@@ -1,0 +1,41 @@
+<div class="container">
+   
+   <div class="wrapper">
+      <div class="wrapper__title">
+         The Best Online Cinema
+      </div>
+      <div class="wrapper__video">
+         <iframe src="https://player.vimeo.com/video/805163067?h=bd84c57133&autoplay=1&muted=1&loop=1" width="640"
+            height="269" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" ></iframe>
+      </div>
+      <div class="wrapper__box-box">
+         <div class="box__info">
+            <h2>Enjoy on your TV.</h2>
+            <h3>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h3>
+         </div>
+         <div class="box__img">
+            <img src="assets/1.jpg" alt="">
+         </div>
+      </div>
+      <div class="wrapper__box-box">
+         <div class="box__img">
+            <img src="assets/2.png" alt="">
+         </div>
+         <div class="box__info">
+            <h2>Download your shows to watch offline.</h2>
+            <h3>Save your favorites easily and always have something to watch.</h3>
+         </div>
+      </div>
+      <div class="history">
+         <div *ngIf="userData" class="history__title">History Viewed:</div>
+         <div class="history__flex">
+            <div *ngFor="let cinema of userData"  class="history__container-containera">
+               <div class="containera__title">{{cinema.title}}</div>
+               <div class="containera__img"><img src="{{'https://image.tmdb.org/t/p/w500/' + cinema.poster_path}}" alt=""></div>
+               <div class="containera__date">{{cinema.release_date}}</div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>

@@ -1,0 +1,58 @@
+.container {
+   background-color: #17041f;
+   padding-bottom: 5%;
+   padding-top: 7%;
+}
+
+.box {
+   max-width: 90%;
+   margin: 0 auto;
+}
+.arrowback{
+   cursor: pointer;
+}
+.title {
+   font-size: 50px;
+   font-weight: 700;
+   // text-align: right;
+   padding-bottom: 5%;
+   display: flex;
+   justify-content: space-between;
+}
+.flex-box {
+   display: flex;
+   justify-content: space-around;
+}
+.img img{
+   max-width: 100%;
+}
+.discription {
+   text-align: center;
+}
+.subtitle {
+   font-weight: 700;
+   font-size: 30px;
+   padding-bottom: 5%;
+   max-width: 80%;
+   margin: 0 auto;
+   font-style: italic;
+}
+.desc {
+   font-size: 16px;
+   font-style: italic;
+
+}
+.subdesc {
+   display: flex;
+   justify-content: space-around;
+   margin: 3%;
+   align-items: center;
+   text-align: center;
+}
+.lang, .release, .rating {
+   text-align: center;
+   display: flex;
+}
+
+.subimg {
+}

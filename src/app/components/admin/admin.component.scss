@@ -1,0 +1,62 @@
+.container {
+   padding-top: 4.3%;
+   background-color: #17041f;
+ padding-bottom: 7%;
+}
+
+.wrapper {
+   border: 10px ridge #fff;
+   margin: 3% auto; 
+   padding: 2%;
+   max-width: 90%;
+}
+.about-user {
+   display:flex;
+   justify-content: space-around;
+   font-size: 20px;
+}
+.email {
+   text-decoration: underline;
+}
+.date {
+}
+.favorites {
+
+		&__ {
+
+			&_container-cinema {
+            display: flex;
+            justify-content: space-around;
+            font-size: 20px;
+            text-align: center;
+            align-items: center;
+            margin-top: 2%;
+			}
+		}
+}
+.cinema {
+
+   &__id {
+   }
+
+   &__title {
+   }
+
+   &__img {
+     
+   }
+
+   &__img img{
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+      object-fit: cover;
+   }
+
+   &__release {
+   }
+
+   &__quality {
+   }
+}
+

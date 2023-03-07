@@ -1,0 +1,25 @@
+<div class="wrapper">
+   <mat-icon (click)="onNoClick()" class="arrowback">arrow_back</mat-icon>
+      <div *ngFor="let basket of basketUser" class="containeer">
+         <div class="img">
+            <img src="{{'https://image.tmdb.org/t/p/w500/' + basket.poster_path}}" alt="">
+         </div>
+         <div class="title">{{basket.title}}</div>
+         <div class="info">
+            <div class="amount">
+               <div (click)="minusItem(basket)" class="minus"><mat-icon >remove</mat-icon></div>
+               <div class="quality">{{basket.quality}}</div>
+               <div (click)="plusItem(basket)" class="plus"><mat-icon >add</mat-icon></div>
+            </div>
+         </div>
+         <button (click)="viewedCinema(basket)"  mat-raised-button color="accent">Viewed</button>
+         <button (click)="deleteCinema(basket)" mat-raised-button color="warn">Delete</button>
+      </div>
+</div>
+
+
+
+
+
+
+

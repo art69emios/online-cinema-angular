@@ -1,0 +1,108 @@
+
+
+.wrapper {
+   max-width: 100%;
+   background-color: #17041f;
+}
+.container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   padding-bottom: 5%;
+   padding-top: 1%;
+   max-width: 95%;
+   margin: 0 auto;
+}
+.box{
+   margin: 5%;
+   box-shadow: 0 0 20px #fff;
+   padding: 3%;
+}
+
+.example-icon {
+   display: flex;
+   justify-content: flex-end;
+   width: 100%;
+   // padding: 10px;
+}
+.title {
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: 700;
+   font-size: 20px;
+}
+.flex {
+   display: flex;
+   padding-top: 20px;
+   justify-content: space-between;
+   align-items: center;
+   text-align: center;
+}
+.relise {
+ 
+}
+.vote-average {
+   display: flex;
+
+   align-items: center;
+   text-align: center;
+}
+.img img{
+   max-width: 100%;
+   cursor: pointer;
+}
+.btn-info {
+   display: flex;
+   justify-content: flex-end;
+   align-content: flex-end;
+
+}
+
+.header{
+   padding-top: 70px;
+   background-color: transparent;
+
+}
+
+.example-form {
+   min-width: 150px;
+   max-width: 500px;
+   width: 100%;
+ }
+ 
+ .example-full-width {
+   width: 100%;
+}
+
+.btn{
+width: 30px;
+height: 30px;
+margin: 10px;
+}
+
+.message-error{
+   text-align: center;
+   align-items: center;
+   text-transform: uppercase;
+   color: red;
+   font-size: 50px;
+}
+
+.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+   line-height: normal;
+   pointer-events: all;
+   
+}
+
+input{
+   background-color: transparent;
+   border: none;
+   border-bottom: 1px solid #ccc;
+   width: 100%;
+   color: #fff;
+   letter-spacing: 2px;
+   padding: 2%;
+}
+
+input:focus{
+   border: none;
+}

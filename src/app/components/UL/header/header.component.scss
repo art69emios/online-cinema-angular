@@ -1,0 +1,51 @@
+
+.header{
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.example-icon {
+   padding: 0 14px;
+ }
+ .example-spacer {
+   flex: 1 1 auto;
+ }
+
+ .btn{
+  height: 40px !important;
+  width: 40px !important;
+  margin-right: 10px;
+}
+
+ section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}

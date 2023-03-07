@@ -1,0 +1,38 @@
+<div *ngIf="cinemaDetails" class="container">
+   <div class="box">
+      <div class="title">
+         <mat-icon (click)="back()" class="arrowback">arrow_back</mat-icon>
+        <p>{{cinemaDetails.title}}</p> 
+      </div>
+      <div class="flex-box">
+         <div class="img">
+            <img src="{{'https://image.tmdb.org/t/p/w500/' + cinemaDetails.poster_path}}" alt="">
+         </div>
+         <div class="discription">
+            <div class="subtitle">
+               {{cinemaDetails.original_title}}
+            </div>
+            <div class="desc">
+               {{cinemaDetails.overview}}
+            </div>
+            <div class="subdesc">
+               <div class="lang">
+                  <mat-icon>language</mat-icon>
+                  Languages : {{cinemaDetails.original_language | uppercase}}
+               </div>
+               <div class="release">
+                  <mat-icon>verified</mat-icon>
+                  Release : {{cinemaDetails.release_date}}
+               </div>
+               <div class="rating">
+                  <mat-icon>stars</mat-icon>
+                  Rating : {{cinemaDetails.vote_average}}
+               </div>
+            </div>
+            <div class="subimg">
+               <img src="{{'https://image.tmdb.org/t/p/w500/' + cinemaDetails.backdrop_path}}" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
