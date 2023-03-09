@@ -13,7 +13,7 @@ export class UsersService {
   constructor(private router:Router, private http:HttpClient) { }
 
   isAuth:boolean = false
-  currentUser!:USERS
+  currentUser!:USERS 
 
   getUsers(){
     return this.http.get<USERS>('http://localhost:3000/users')
@@ -42,7 +42,11 @@ export class UsersService {
     })
   }
 
-
+  isCurrentUser(){
+    return new Promise(resolve => {
+      setTimeout(() => {resolve(this.currentUser)},200)
+    })
+  }
 
   getCurrentUser(): Observable<USERS> {
     return of(this.currentUser);
@@ -56,6 +60,8 @@ export class UsersService {
     return this.http.get<USERS[]>('http://localhost:3000/users').pipe(
       map(users => users.find(user => user.email === email && user.password === password)),
       tap(user => {
+        console.log(user);
+        
         if (user) {
           this.isAuth = true;
           this.setCurrentUser(user);

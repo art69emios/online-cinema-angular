@@ -1,7 +1,6 @@
 import { Component , OnDestroy, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CINEMA } from 'src/app/moduls/cinema';
 import { USERS } from 'src/app/moduls/users';
 import { FormService } from 'src/app/services/form.service';
 import { UsersService } from 'src/app/services/users.service';

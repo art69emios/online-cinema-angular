@@ -18,7 +18,6 @@ export class AdminComponent implements OnInit , OnDestroy {
 
     this.usersSubscriber = this.userServ.getUsers().subscribe(data => {
       this.usersData = data
-      console.log(this.usersData);
     })
     
   }

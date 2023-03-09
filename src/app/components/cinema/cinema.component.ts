@@ -1,10 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CINEMA } from 'src/app/moduls/cinema';
 import { USERS } from 'src/app/moduls/users';
 import { CinemaDataService } from 'src/app/services/cinema-data.service';
-import { FormService } from 'src/app/services/form.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -14,37 +12,27 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class CinemaComponent implements OnInit, OnDestroy {
 
-  constructor(private cinemaService: CinemaDataService, public userServ:UsersService,private formService: FormService, private router:Router){}
+  constructor(private cinemaService: CinemaDataService, public userServ:UsersService, private router:Router){}
 
   cinemaData:any
   cinemaDataSubscriber:any
   
-  usersData!:USERS
   usersSubscriber:any
 
-  searchValue:any
+  searchValue!:string
   messageError:string = ''
   flag!: boolean
   flagR!: boolean
   currentUser!:USERS
-  formGr!:FormGroup
 
 
   ngOnInit(): void {
     this.cinemaDataSubscriber = this.cinemaService.getCinema().subscribe(data =>{
       this.cinemaData = data
     } )
-      
-    this.usersSubscriber = this.userServ.getUsers().subscribe(data => {
-        this.usersData = data
-      })
-
-      this.formService.formPromise().then((data:any) => {
-        this.formGr = data
-      })
-      this.userServ.getCurrentUser().subscribe(
-        data => console.log(data)
-      )
+    this.userServ.isCurrentUser().then((data:any) =>{
+      this.currentUser = data.email
+    } )
   }
 
   addToBasket(cinema: CINEMA, event:Event) {
@@ -57,30 +45,29 @@ export class CinemaComponent implements OnInit, OnDestroy {
       this.router.navigate(['login']);
     }
 
-    const formData = this.formService.getFormData();
     cinema.quality = 1;
     cinema.isDone = false
 
-    if (formData && formData.value) {
-  
-      this.userServ.getUsers().subscribe((data: any) => {
-        let usersData = data
-        const foundUser = usersData.find((user: USERS) => user.email === formData.value.email);
-    
-        if (foundUser) {
-          let findBasket = foundUser.basket.find((item: CINEMA) => item.id === cinema.id);
 
-          if (findBasket) {
+      this.userServ.getCurrentUser().subscribe(data => {
+        console.log(data);
+        
+        if(data && data.basket){
+          let usersData = data
+          if(usersData){
+          let findBasket = usersData.basket.find((item: CINEMA) => item.id === cinema.id);
+          if (findBasket){
             findBasket.quality += 1;
-            this.userServ.updateUsers(foundUser).subscribe();
-          } else {
-            foundUser.basket.push(cinema);
-            this.userServ.updateUsers(foundUser).subscribe();
+            this.userServ.updateUsers(usersData).subscribe();
+          }else{
+            usersData.basket.push(cinema);
+            this.userServ.updateUsers(usersData).subscribe();
           }
-          
-        } 
-      });
-    }
+          }
+
+        }
+
+      })
   }
   
   searchItems(search: string) {
@@ -131,7 +118,8 @@ export class CinemaComponent implements OnInit, OnDestroy {
   }
 
   logOut(){
-    this.userServ.isAuth = false
+    this.userServ.logoutUser()
+    
   }
 
   ngOnDestroy(): void {

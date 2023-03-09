@@ -1,8 +1,10 @@
 <div class="wrapper">
    <mat-toolbar class="header" color="primary">
       <mat-toolbar-row>
-         <span *ngIf="formGr && userServ.isAuth">Welcom : {{formGr.value.email}}
-            <button (click)="logOut()" mat-raised-button color="primary">Log Out</button> </span>
+         <span *ngIf="currentUser && userServ.isAuth">
+            Welcome : {{currentUser}}
+            <button (click)="logOut()" mat-raised-button color="primary">Log Out</button>
+         </span>
          <mat-icon style="cursor: pointer;" class="example-icon">search</mat-icon>
          <form class="example-form">
             <input (input)="searchItems(searchValue)" [ngModelOptions]="{ standalone: true }" [(ngModel)]="searchValue"
@@ -28,7 +30,8 @@
    <div class="container" *ngIf="cinemaData && cinemaData.results">
 
       <div class="box" *ngFor="let cinema of cinemaData.results">
-         <mat-icon (click)="addToBasket(cinema, $event)" style="cursor: pointer;" class="example-icon">bookmark_add</mat-icon>
+         <mat-icon (click)="addToBasket(cinema, $event)" style="cursor: pointer;"
+            class="example-icon">bookmark_add</mat-icon>
          <div class="title">
             {{cinema.title}}
          </div>
