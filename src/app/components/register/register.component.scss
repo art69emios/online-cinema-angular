@@ -23,6 +23,7 @@
    margin: 0 auto;
    margin-top: 6%;
    border-radius: 20px;
+   margin-bottom: 30px
 }
 .title {
    text-transform: uppercase;
@@ -86,4 +87,25 @@ input[type="submit"]{
 .succes-message img{
    text-align: center;
    align-items: center;
+}
+@media(max-width:500px){
+   .container {
+      padding-bottom: 30%;
+      padding-top: 55%;
+      background-color: #17041f;
+   }
+
+   .form {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #181818;
+      max-width: 95%;
+      margin: 0 auto;
+      margin-top: 4%;
+      border-radius: 20px;
+      margin-bottom: 20px
+
+   }
 }

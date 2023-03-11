@@ -18,7 +18,7 @@ export class BaseComponent  implements OnInit, OnDestroy{
   ngOnInit(): void {
       this.userSubscriber = this.userServ.getCurrentUser().subscribe((data:any) => {
         if(data && data.basket) {
-          let currentUser = data.basket.filter((item:CINEMA) => item.isDone === true);
+          let currentUser = data.viewedCinema.filter((item:CINEMA) => item.isDone === true);
           if(currentUser) {
             this.userData = currentUser;
           }

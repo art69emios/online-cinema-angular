@@ -40,6 +40,10 @@
 .relise {
  
 }
+.mat-toolbar-row{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .vote-average {
    display: flex;
 
@@ -54,7 +58,6 @@
    display: flex;
    justify-content: flex-end;
    align-content: flex-end;
-
 }
 
 .header{
@@ -85,6 +88,7 @@ margin: 10px;
    text-transform: uppercase;
    color: red;
    font-size: 50px;
+   padding-bottom: 480px;
 }
 
 .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
@@ -105,4 +109,35 @@ input{
 
 input:focus{
    border: none;
+}
+
+
+@media(max-width:500px){
+   .container {
+      grid-template-columns: 1fr;
+   }
+ 
+   .sort{
+      font-size: 10px;
+      display: none;
+   }
+  
+   .mat-toolbar-row{
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr ;
+      margin-bottom: 12%;
+   }
+   .example-icon1{
+      display: none;
+   }
+
+   .message-error{
+      text-align: center;
+      align-items: center;
+      text-transform: uppercase;
+      color: red;
+      font-size: 50px;
+      padding-bottom: 520px;
+      line-height: normal;
+   }
 }

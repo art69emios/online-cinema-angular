@@ -1,29 +1,33 @@
 <div class="wrapper">
    <mat-toolbar class="header" color="primary">
-      <mat-toolbar-row>
+      <mat-toolbar-row class="mat-toolbar-row">
+         <form class="example-form">
+               <mat-icon style="cursor: pointer;" class="example-icon1">search</mat-icon>
+               <input (input)="searchItems(searchValue)" [ngModelOptions]="{ standalone: true }" [(ngModel)]="searchValue"
+               placeholder="Search">
+            </form>
+         <div>
+            <button *ngIf="!flag" (click)="sortDate()" class="btn" mat-fab color="primary">
+               <mat-icon>filter_alt</mat-icon>
+            </button>
+            <button *ngIf="flag" (click)="sortDateLess()" class="btn" mat-fab color="primary">
+               <mat-icon>filter_alt_off</mat-icon>
+            </button>
+            <span class="sort">Sort Date</span>  
+         </div>
+         <div>
+            <button *ngIf="flagR" (click)="sortRating()" class="btn" mat-fab color="primary">
+               <mat-icon>arrow_downward</mat-icon>
+            </button>
+            <button *ngIf="!flagR" (click)="sortRatingLess()" class="btn" mat-fab color="primary">
+               <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <span class="sort"> Sort Rating</span>
+         </div>
          <span *ngIf="currentUser && userServ.isAuth">
             Welcome : {{currentUser}}
             <button (click)="logOut()" mat-raised-button color="primary">Log Out</button>
          </span>
-         <mat-icon style="cursor: pointer;" class="example-icon">search</mat-icon>
-         <form class="example-form">
-            <input (input)="searchItems(searchValue)" [ngModelOptions]="{ standalone: true }" [(ngModel)]="searchValue"
-               placeholder="Search">
-         </form>
-         <button *ngIf="!flag" (click)="sortDate()" class="btn" mat-fab color="primary">
-            <mat-icon>sort</mat-icon>
-         </button>
-         <button *ngIf="flag" (click)="sortDateLess()" class="btn" mat-fab color="primary">
-            <mat-icon>sort</mat-icon>
-         </button>
-         Sort Date
-         <button *ngIf="flagR" (click)="sortRating()" class="btn" mat-fab color="primary">
-            <mat-icon>stars</mat-icon>
-         </button>
-         <button *ngIf="!flagR" (click)="sortRatingLess()" class="btn" mat-fab color="primary">
-            <mat-icon>stars</mat-icon>
-         </button>
-         Sort Rating
       </mat-toolbar-row>
    </mat-toolbar>
 

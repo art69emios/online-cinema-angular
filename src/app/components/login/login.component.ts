@@ -23,13 +23,11 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     this.createControls()
     this.createForm()
-
-   
   }
 
   createControls(){
-    this.email = new FormControl('',[Validators.required])
-    this.password = new FormControl('',Validators.required)
+    this.email = new FormControl('',[Validators.required,Validators.email])
+    this.password = new FormControl('',[Validators.required, Validators.minLength(8)])
   }
 
   createForm(){
@@ -46,6 +44,7 @@ export class LoginComponent implements OnInit{
       let usersArray = data;
       const user:USERS = usersArray.find((item: USERS) => form.value.email === item.email )
       if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
         this.isAuth = true
         this.userServ.isAuth = this.isAuth
         this.userServ.loginUser(form.value.email, form.value.password).subscribe()

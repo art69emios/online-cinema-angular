@@ -9,6 +9,7 @@
    margin: 3% auto; 
    padding: 2%;
    max-width: 90%;
+   margin-bottom: 400px;
 }
 .about-user {
    display:flex;
@@ -35,13 +36,6 @@
 		}
 }
 .cinema {
-
-   &__id {
-   }
-
-   &__title {
-   }
-
    &__img {
      
    }
@@ -53,10 +47,59 @@
       object-fit: cover;
    }
 
-   &__release {
-   }
 
-   &__quality {
-   }
 }
 
+
+
+@media(max-width:500px){
+   .container {
+      padding-top: 13.5%;
+      background-color: #17041f;
+    padding-bottom: 7%;
+   }
+   .wrapper {
+      border: 10px ridge #fff;
+      margin: 3% auto; 
+      padding: 2%;
+      max-width: 90%;
+      margin-bottom: 550px;
+      text-align: center;
+   }
+   .about-user {
+      display:block;
+      justify-content: space-around;
+      font-size: 20px;
+      text-align: center;
+   }
+
+   .favorites {
+
+		&__ {
+
+			&_container-cinema {
+            display: block;
+            justify-content: space-around;
+            font-size: 20px;
+            text-align: center;
+            align-items: center;
+            margin-top: 2%;
+			}
+		}
+}
+
+.cinema {
+   &__img {
+     
+   }
+
+   &__img img{
+      width: 50%;
+      height: 50%;
+      border-radius: 4px;
+      object-fit: cover;
+   }
+
+
+}
+}

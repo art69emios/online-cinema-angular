@@ -36,6 +36,7 @@ export class AdminComponent implements OnInit , OnDestroy {
       let indx = this.usersData.findIndex((item:USERS) => item.id === users.id)
       this.usersData.splice(indx, 1)
       this.userServ.deleteUser(users).subscribe()
+      this.userServ.logoutUser()
   }
 
   ngOnDestroy(): void {

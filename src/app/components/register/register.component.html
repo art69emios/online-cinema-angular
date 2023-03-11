@@ -10,12 +10,14 @@
             <div class="input">
                <label >
                   <input formControlName="email" type="text"  ><br>
-                  <div *ngIf="form.get('email')?.getError('required') && form.get('email')?.touched" class="er">Fild is required</div>
+                  <div *ngIf="form.get('email')?.getError('required') && form.get('email')?.touched" class="er">Fild is required!</div>
+                  <div *ngIf="form.get('email')?.getError('email') && form.get('email')?.touched" class="er">Invalid Email </div>
                   Email
                </label>
                <label >
                   <input formControlName="password" type="text"><br>
                   <div *ngIf="form.get('password')?.getError('required') && form.get('password')?.touched" class="er">Fild is required</div>
+                  <div *ngIf="form.get('password')?.getError('minlength') && form.get('password')?.touched" class="er">The minimum symbols shod be 8 </div>
                   Password
                </label>
                <div class="submit">

@@ -22,9 +22,8 @@ export class HeaderComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ImportantComponent, {
       data: {},
-      width: '70%',
-      height: '70%',
-      disableClose: true
+      width: '90%',
+      height: '90%'
     });
 
     dialogRef.afterClosed().subscribe();

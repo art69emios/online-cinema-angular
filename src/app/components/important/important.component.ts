@@ -11,10 +11,10 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ImportantComponent implements OnInit, OnDestroy {
 
-  constructor(public dialogRef: MatDialogRef<ImportantComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private userServ:UsersService) {}
+  constructor(public dialogRef: MatDialogRef<ImportantComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public userServ:UsersService) {}
 
   currentUser!:USERS
-  basketUser:any
+  basketUser!:CINEMA[]
   usersSubscriber:any
 
  
@@ -27,7 +27,6 @@ export class ImportantComponent implements OnInit, OnDestroy {
             this.currentUser = data
             if(currentUser) {
               this.basketUser = currentUser;
-              console.log(this.basketUser);
             }
           }
         })
@@ -48,10 +47,12 @@ export class ImportantComponent implements OnInit, OnDestroy {
 
   viewedCinema(cinema: CINEMA){
     cinema.isDone = true
-    this.userServ.updateBasket(this.currentUser.id, this.basketUser).subscribe();
+    this.currentUser.viewedCinema.push(cinema)
+    this.userServ.updateUsers(this.currentUser).subscribe()
+    this.deleteCinema(cinema)
   }
   
-  deleteCinema(cinema: USERS): void  {
+  deleteCinema(cinema: CINEMA): void  {
     let idX = this.basketUser.findIndex((item: CINEMA) => item.id === cinema.id);
     this.basketUser.splice(idX, 1);
     this.userServ.updateBasket(this.currentUser.id, this.basketUser).subscribe();

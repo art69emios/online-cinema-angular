@@ -32,8 +32,8 @@ export class RegisterComponent implements OnInit, OnDestroy  {
   }
 
   createControls(){
-    this.email = new FormControl('',[Validators.required])
-    this.password = new FormControl('',Validators.required)
+    this.email = new FormControl('',[Validators.required, Validators.email])
+    this.password = new FormControl('',[Validators.required, Validators.minLength(8)])
   }
 
   createForm(){
@@ -52,7 +52,8 @@ export class RegisterComponent implements OnInit, OnDestroy  {
       password: form.value.password,
       basket: [],
       id: 0,
-      date: new Date()
+      date: new Date(),
+      viewedCinema: []
     };
 
     if(newUser){

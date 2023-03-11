@@ -22,6 +22,7 @@
 .flex-box {
    display: flex;
    justify-content: space-around;
+   
 }
 .img img{
    max-width: 100%;
@@ -54,5 +55,60 @@
    display: flex;
 }
 
-.subimg {
+
+@media(max-width:500px){
+   .flex-box {
+      display: block;
+      justify-content: space-around;
+      
+   }
+   .container {
+      background-color: #17041f;
+      padding-bottom: 50px;
+      padding-top: 100px;
+   }
+
+   .title {
+      font-size: 50px;
+      font-weight: 700;
+      // text-align: right;
+      padding-bottom: 5%;
+      display: block;
+      line-height: 1;
+      margin: 3% auto;
+   }
+
+   .arrowback{
+      margin-bottom: 10%;
+   }
+   .subtitle {
+      font-weight: 700;
+      font-size: 30px;
+      padding-bottom: 5%;
+      max-width: 95%;
+      margin: 3% auto;
+      font-style: italic;
+   }
+   .desc {
+      font-size: 16px;
+      font-style: italic;
+      max-width: 95%;
+      margin: 0 auto;
+      margin: 3% auto;
+
+   }
+   .subdesc {
+      display: flex;
+      margin: 3% auto;
+      align-items: center;
+      text-align: center;
+      max-width: 95%;
+   }
+   .subimg{
+      max-width: 95%;
+      margin: 0 auto;
+   }
+   .subimg img {
+      width: 100%;
+   }
 }

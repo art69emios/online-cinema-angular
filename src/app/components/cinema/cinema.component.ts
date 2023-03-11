@@ -47,10 +47,24 @@ export class CinemaComponent implements OnInit, OnDestroy {
 
     cinema.quality = 1;
     cinema.isDone = false
-
+    if(localStorage.getItem('currentUser')){
+      const currentUser = localStorage.getItem('currentUser');
+      if (currentUser !== null) {
+        let usersData =  JSON.parse(currentUser)
+        if(usersData){
+          let findBasket = usersData.basket.find((item: CINEMA) => item.id === cinema.id);
+          if (findBasket){
+            findBasket.quality += 1;
+            this.userServ.updateUsers(usersData).subscribe();
+          }else{
+            usersData.basket.push(cinema);
+            this.userServ.updateUsers(usersData).subscribe();
+          }
+          }
+      }
+      }
 
       this.userServ.getCurrentUser().subscribe(data => {
-        console.log(data);
         
         if(data && data.basket){
           let usersData = data

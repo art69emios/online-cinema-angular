@@ -106,3 +106,84 @@ h3{
    }
 }
 
+
+
+@media(max-width:500px){
+
+   h2{
+      font-size: 30px;
+      font-weight: 700;
+      font-style: italic;
+   }
+   h3{
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+   }
+
+   .container {
+   padding-bottom: 5%;
+   padding-top: 150px;
+   background: #000000db;
+   
+
+}
+
+img{
+   width: 100%;
+}
+
+   .wrapper {
+      max-width: 95%;
+      margin: 0 auto;
+
+   &__title {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0px;
+      font-size: 50px;
+      line-height: 1;
+   }
+
+   &__video {
+      margin: 2% auto; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   &__video iframe{
+   }
+
+   &__box-box {
+      display: block;
+      justify-content: space-between;
+      align-items: center;
+ 
+   }
+}
+
+.containera {
+
+   &__title {
+      text-align: center;
+      font-weight: 700;
+   }
+
+   &__img {
+      width: 100%;
+      margin: 3%;
+   }
+
+   &__img img{
+      width: 100%;
+   }
+
+   &__date {
+      text-align: center;
+      font-weight: 700;
+   }
+}
+
+}
